@@ -1,0 +1,66 @@
+<header class="fixed-margin-top">
+    <!--Navbar-->
+    <mdb-navbar #nav SideClass="navbar navbar-expand-lg navbar-dark bg-warning fixed-top" [containerInside]="false">
+
+        <!-- Navbar brand -->
+        <mdb-navbar-brand class="d-flex w-100 ">
+            <div class="mr-auto " [ngClass]="{ 'd-none': longSearch === true  }">
+                <a id="app-title" class="navbar-brand" routerLink="words">
+                    <i class="fa fa-book mr-1" aria-hidden="true"></i>
+                    <strong>GlouTon</strong>
+                </a>
+            </div>
+
+        <!--<links>-->
+            <div class="" [ngClass]="{ 'w-100': longSearch === true  }">
+                    <ul class="navbar-nav ml-auto nav-flex-icons">
+                        <li class="nav-item" [ngClass]="{ 'd-none': longSearch !== true  }">
+                            <a class="nav-link" (click)="showLongSearch(false)">
+                                <i class="fa fa-angle-left fa-lg"></i>
+                            </a>
+                        </li>
+
+                        <li id="app-nav-search" class="nav-item" [ngClass]="{ 'd-none': longSearch !== true  }">
+                            <div class="md-form active-white active-white-2 my-0 ">
+                              <!--<a class="my-auto d-none" (click)="cancelSearch()"><i class="fa fa-angle-left fa-lg white-text" aria-hidden="true"></i></a>-->
+                                <input autocomplete="off" class="form-control my-0" type="search" id="app-nav-input-search" aria-label="Search" placeholder="Rechercher un mot, un thème..." mdbInputDirective (keyup)="search()">
+                            </div>
+                        </li>
+
+                        <li id="app-nav-iconsearch" class="nav-item" [ngClass]="{ 'd-none': longSearch === true  }">
+                            <a class="nav-link waves-effect waves-light" (click)="showLongSearch(true)">
+                                <i class="fa fa-search fa-lg "></i>
+                                <!--Recherche-->
+                            </a>
+                        </li>
+
+                        <li id="app-nav-resetsearch" class="nav-item" [ngClass]="{ 'd-none': longSearch !== true  }">
+                            <a class="nav-link waves-effect waves-light" (click)="resetInput('app-nav-input-search')">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+        <!--</links>-->
+        </mdb-navbar-brand>
+    </mdb-navbar>
+
+
+    <div id="overlay" [ngClass]="{ 'd-none': longSearch !== true  }"></div>
+
+    <div id="app-nav-result-search" class="list-group list-group-flush" [ngClass]="{ 'd-none': (resultSearch.words.length === 0 && resultSearch.themes.length === 0) || longSearch !== true  }">
+        <a *ngFor="let theme of resultSearch.themes"
+           class="list-group-item list-group-item-action border-0 waves-light" mdbWavesEffect (click)="navigateTo('themes', theme.id)"
+        >
+            <mdb-icon class="deep-orange-text" icon="search"></mdb-icon>
+            {{ theme.theme | titlecase }} en tant que Thème
+        </a>
+
+        <a *ngFor="let word of resultSearch.words"
+           class="list-group-item list-group-item-action border-0 waves-light" mdbWavesEffect (click)="navigateTo('words', word.id)"
+        >
+            <mdb-icon class="deep-orange-text" icon="search"></mdb-icon>
+            {{ word.word | titlecase }}
+        </a>
+    </div>
+</header>

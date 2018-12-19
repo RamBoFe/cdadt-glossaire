@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto mt-5">
+      <h2 class="text-center">Liste de mots</h2>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12  mt-5 mb-5">
+      <nav>
+        <ul class="pagination pagination-circle pg-teal justify-content-center flex-wrap">
+
+        <li class="page-item" (click)="scrollToId(i)" *ngFor="let lettre of lettres; let i = index" [ngClass]="{ 'active': i === active }">
+          <a class="page-link"  mdbWavesEffect>{{ lettre }}</a>
+        </li>
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <!--<div class="row">-->
+    <!--<div class="col-12">-->
+      <!--<button type="button" mdbBtn color="info" (click)="json()" mdbWavesEffect>Info</button>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <app-loader *ngIf="showLoader === true; else showWords"></app-loader>
+
+<ng-template #showWords>
+  <div class="row">
+    <div class="col-12">
+      <div class="list-group list-group-flush" >
+        <a [attr.id]=idForScroll(i) *ngFor="let word of words; let i = index;" [routerLink]="['/words', i]"
+           class="list-group-item list-group-item-action justify-content-between d-flex align-items-center waves-light" mdbWavesEffect
+        >
+          {{ word.name }}
+          <!--<mdb-badge pill="true" default="true">-->
+          <mdb-icon class="deep-orange-text" icon="chevron-right"></mdb-icon>
+          <!--<mdb-icon class="fa-lg" icon="star"></mdb-icon>-->
+          <!--<mdb-icon class="fa-lg" icon="star"></mdb-icon>-->
+          <!--<mdb-icon class="fa-lg" icon="star"></mdb-icon>-->
+          <!--<mdb-icon class="fa-lg" icon="star"></mdb-icon>-->
+          <!--<mdb-icon class="fa-lg" icon="star-half-full"></mdb-icon>-->
+          <!--</mdb-badge>-->
+        </a>
+      </div>
+    </div>
+
+  </div>
+</ng-template>
+
+
+
+</div>

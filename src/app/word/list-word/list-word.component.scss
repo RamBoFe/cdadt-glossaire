@@ -1,0 +1,14 @@
+$color: red;
+
+.ok { color: $color }
+
+.custom-pagination {
+  position: fixed;
+  top: 45%;
+  transform: translateY(-50%);
+  right: 60px;
+}
+.pagination {
+  //display: block !important;
+
+}

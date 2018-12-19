@@ -1,0 +1,55 @@
+0.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+
+.fixed-margin-top { margin-top: 75px; }
+
+
+
+.active-white-2 input[type=search]:focus:not([readonly]) {
+  border-bottom: 0;
+  box-shadow: none;
+  color: white;
+}
+
+.active-white input[type=search] {
+  border-bottom: 0;
+  box-shadow: none;
+}
+
+input[type=search]::placeholder {
+  color:white;
+}
+
+input[type=search] {
+  color:white;
+}
+
+#app-nav-result-search {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20000;
+}
+
+
+/*
+* OVERLAYR
+ */
+#overlay {
+  position: fixed;
+  //display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  //cursor: pointer;
+}

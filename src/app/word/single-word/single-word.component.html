@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mx-auto mt-5">
+      <h2 class="">{{ word.name }}
+
+        <mdb-icon primary="true" icon="heart-o" class="amber-text"></mdb-icon>
+      </h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="mr-2 d-inline-flex">
+        <mdb-badge pill="true" [primary]="true">Thème : {{ theme.name | titlecase }}</mdb-badge>
+      </div>
+        <mdb-badge pill="true" default="true">Note :
+        <!--<mdb-icon class="deep-orange-text" icon="chevron-right"></mdb-icon>-->
+        <mdb-icon class="" icon="star"></mdb-icon>
+        <mdb-icon class="" icon="star"></mdb-icon>
+        <mdb-icon class="" icon="star"></mdb-icon>
+        <mdb-icon class="" icon="star-half-full"></mdb-icon>
+        <mdb-icon class="" icon="star-o"></mdb-icon>
+      </mdb-badge>
+    </div>
+  </div>
+
+  <p class="mt-4">
+    {{ word.definition }}
+  </p>
+
+
+  <div class="text-right">
+
+  </div>
+</div>
