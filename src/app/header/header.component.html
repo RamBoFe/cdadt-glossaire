@@ -50,14 +50,16 @@
 
     <div id="app-nav-result-search" class="list-group list-group-flush" [ngClass]="{ 'd-none': (resultSearch.words.length === 0 && resultSearch.themes.length === 0) || longSearch !== true  }">
         <a *ngFor="let theme of resultSearch.themes"
-           class="list-group-item list-group-item-action border-0 waves-light" mdbWavesEffect (click)="navigateTo('themes', theme.id)"
+           class="list-group-item list-group-item-action border-0 waves-light" mdbWavesEffect (click)="hideSearch()"
+           [routerLink]="['themes', theme.id]"
         >
             <mdb-icon class="deep-orange-text" icon="search"></mdb-icon>
             {{ theme.theme | titlecase }} en tant que Thème
         </a>
 
         <a *ngFor="let word of resultSearch.words"
-           class="list-group-item list-group-item-action border-0 waves-light" mdbWavesEffect (click)="navigateTo('words', word.id)"
+           class="list-group-item list-group-item-action border-0 waves-light" mdbWavesEffect (click)="hideSearch()"
+           [routerLink]="['words', word.id]"
         >
             <mdb-icon class="deep-orange-text" icon="search"></mdb-icon>
             {{ word.word | titlecase }}

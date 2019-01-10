@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {WordService} from '../services/word.service';
 import {ThemeService} from '../services/theme.service';
-import {Router} from '@angular/router';
-
 
 @Component({
   selector: 'app-header',
@@ -17,8 +15,7 @@ export class HeaderComponent implements OnInit {
   public resultSearch = {'words': [], 'themes': []};
 
   constructor(private srvWord: WordService,
-              private srvTheme: ThemeService,
-              private router: Router) { }
+              private srvTheme: ThemeService) { }
 
   ngOnInit() {
   }
@@ -45,11 +42,7 @@ export class HeaderComponent implements OnInit {
 
   search() {
     this.valueSearch = (<HTMLInputElement>document.getElementById('app-nav-input-search')).value;
-    // console.log(this.valueSearch);
-
     this.findOccurences();
-
-    // console.log(this.resultSearch);
   }
 
 
@@ -59,7 +52,7 @@ export class HeaderComponent implements OnInit {
       this.resultSearch.words = this.findOccurencesInDef(this.valueSearch);
 
       // On cherche dans les themes
-      this.resultSearch.themes = this.findOccurrecesInThemes(this.valueSearch);
+      this.resultSearch.themes = this.findOccurrencesInThemes(this.valueSearch);
     }
   }
 
@@ -68,7 +61,6 @@ export class HeaderComponent implements OnInit {
     const results = [];
     words.forEach(
         (word, index) => {
-          // console.log(word.name.toLowerCase().indexOf(value.toLowerCase()));
           if (word.name.toLowerCase().indexOf(value.toLowerCase()) > -1) {
               results.push( { id: index, word: word.name } );
             }
@@ -78,11 +70,7 @@ export class HeaderComponent implements OnInit {
     return results;
   }
 
-  findOccurrecesInThemes(value: string) {
-    // return this.srvTheme.getThemes().filter((theme) =>
-    //   theme.name.toLowerCase().indexOf(value.toLowerCase()) > -1
-    // );
-
+  findOccurrencesInThemes(value: string) {
     const themes = this.srvTheme.getThemes();
     const results = [];
     themes.forEach(
@@ -97,19 +85,8 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  navigateTo(type: string, id: number) {
+  hideSearch() {
     this.longSearch = false;
-    this.router.navigate(['/', type, id]);
-  }
-
-
-
-
-
-
-
-  test() {
-    // document.getElementById('app-nav-input-search').focus();
   }
 
 }
