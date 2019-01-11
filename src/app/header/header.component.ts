@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {WordService} from '../services/word.service';
 import {ThemeService} from '../services/theme.service';
+// import {NavbarComponent} from 'angular-bootstrap-md/angular-bootstrap-md/navbars';
+
 
 @Component({
   selector: 'app-header',
@@ -9,29 +11,42 @@ import {ThemeService} from '../services/theme.service';
 })
 export class HeaderComponent implements OnInit {
 
-  // private form: string;
   private longSearch = false;
   private valueSearch: string;
   public resultSearch = {'words': [], 'themes': []};
+
+  // @ViewChild('navbar') navbar: NavbarComponent;
+  private navbarHeight: string;
 
   constructor(private srvWord: WordService,
               private srvTheme: ThemeService) { }
 
   ngOnInit() {
+
   }
 
   showLongSearch(yesNo: boolean) {
     this.longSearch = yesNo;
-
     const elNavLiSearch  = document.getElementById('app-nav-search');
     const elNavLiSearchInput = document.getElementById('app-nav-input-search');
 
+    const elNavBtnToogler = document.getElementsByClassName('navbar-toggler').item(0);
+    const elNavDivCollapse = <HTMLDivElement>document.getElementsByClassName('navbar-collapse collapse').item(0);
+
     if (yesNo) {
+      // Impossible de faire fonctionner le @ViewChild pour accéder aux events de fermeture et d'ouverture de la barre....
+      // On le fait àl'ancienne pour l'instant...
+      this.navbarHeight = elNavDivCollapse.style.height;
+      elNavDivCollapse.style.height = '0px';
+
+      elNavBtnToogler.classList.add('d-none');
       elNavLiSearch.classList.remove('d-none');
       elNavLiSearch.classList.add('w-100');
       elNavLiSearch.style.display = 'list-item';
       elNavLiSearchInput.focus();
     } else {
+      elNavDivCollapse.style.height = this.navbarHeight;
+      elNavBtnToogler.classList.remove('d-none');
       elNavLiSearch.classList.add('d-none');
     }
   }

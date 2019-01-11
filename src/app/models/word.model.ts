@@ -4,7 +4,7 @@ export class Word {
     note: number;
     theme: number;
 
-    constructor( ) {}
+    constructor() {}
 }
 
 

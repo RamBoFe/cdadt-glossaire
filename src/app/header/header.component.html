@@ -1,17 +1,34 @@
-<header class="fixed-margin-top">
+<header class="fixed-margin-top" id="ok">
     <!--Navbar-->
-    <mdb-navbar #nav SideClass="navbar navbar-expand-lg navbar-dark bg-warning fixed-top" [containerInside]="false">
+    <mdb-navbar id="nav"#navbar SideClass="navbar navbar-expand-lg navbar-dark bg-warning fixed-top" [containerInside]="false">
 
         <!-- Navbar brand -->
-        <mdb-navbar-brand class="d-flex w-100 ">
+        <mdb-navbar-brand class="order-lg-1">
             <div class="mr-auto " [ngClass]="{ 'd-none': longSearch === true  }">
                 <a id="app-title" class="navbar-brand" routerLink="words">
                     <i class="fa fa-book mr-1" aria-hidden="true"></i>
                     <strong>GlouTon</strong>
                 </a>
             </div>
+        </mdb-navbar-brand>
+        <!--<div class="order-lg-2">-->
+            <links [ngClass]="{ 'd-none': longSearch === true  }">
+        <!--<div class="navbar-collapse collapse order-lg-2">-->
+                <div class="mouarf" id="">
+                    <ul class="navbar-nav mt-lg-0">
+                        <li class="nav-item" routerLinkActive="active">
+                            <a class="nav-link" routerLink="/home" >Accueil</a>
+                        </li>
+                        <li class="nav-item" routerLinkActive="active">
+                            <a class="nav-link" routerLink="/words">Liste des mots</a>
+                        </li>
+                    </ul>
+                </div>
+            </links>
+        <!--</div>-->
+        <!--</div>-->
 
-        <!--<links>-->
+        <mdb-navbar-brand class="ml-sm-auto ml-xl-auto ml-auto order-lg-3" [ngClass]="{ 'w-100': longSearch === true  }">
             <div class="" [ngClass]="{ 'w-100': longSearch === true  }">
                     <ul class="navbar-nav ml-auto nav-flex-icons">
                         <li class="nav-item" [ngClass]="{ 'd-none': longSearch !== true  }">

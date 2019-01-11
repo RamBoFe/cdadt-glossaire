@@ -23,13 +23,13 @@ export class SingleWordComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.subscriber = this.route.params.subscribe((params: Params) => {
-      console.log(params.id);
-      this.getWords(params.id);
+    this.subscriber = this.route.paramMap.subscribe((params: Params) => {
+      // console.log(params.params.id);
+      this.getWord(params.params.id);
     });
   }
 
-  getWords(id: number) {
+  getWord(id: number) {
     // const id = this.route.snapshot.params['id'];
     this.word = this.srvWord.getWordByIndex(id);
     this.theme = this.srvTheme.getThemeByIndex(this.word.theme);

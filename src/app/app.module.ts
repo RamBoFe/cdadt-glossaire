@@ -14,8 +14,10 @@ import {LoaderComponent} from './loader/loader.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+    { path: 'home', component: HomeComponent },
     { path: 'words', component: ListWordComponent },
     { path: 'words/:id', component: SingleWordComponent },
     { path: '', component: ListWordComponent },
@@ -31,6 +33,7 @@ const routes: Routes = [
     SearchComponent,
     LoaderComponent,
     FooterComponent,
+    HomeComponent,
   ],
   imports: [
 
