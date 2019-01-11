@@ -7,7 +7,7 @@
 .fixed-margin-top { margin-top: 75px; }
 
 // ::ng-deep bientôt deprecated
-#ok ::ng-deep div  { order: 2 }
+#header ::ng-deep div  { order: 2 }
 
 
 .active-white-2 input[type=search]:focus:not([readonly]) {
