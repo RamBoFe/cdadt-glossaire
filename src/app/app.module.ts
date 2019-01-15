@@ -15,12 +15,15 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { AuthComponent } from './auth/auth.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'words', component: ListWordComponent },
     { path: 'words/:id', component: SingleWordComponent },
-    { path: '', component: ListWordComponent },
+    { path: 'auth', component: AuthComponent },
+    { path: '', component: HomeComponent },
 ]
 
 @NgModule({
@@ -34,11 +37,13 @@ const routes: Routes = [
     LoaderComponent,
     FooterComponent,
     HomeComponent,
+    AuthComponent,
   ],
   imports: [
-
     BrowserModule,
     RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule,
     MDBBootstrapModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],

@@ -1,6 +1,7 @@
+:host { flex-grow: 1 }
+
 $color: red;
 
-.ok { color: $color }
 
 .custom-pagination {
   position: fixed;

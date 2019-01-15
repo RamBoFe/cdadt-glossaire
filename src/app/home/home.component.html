@@ -1,3 +1,65 @@
-<p>
-  home works!
-</p>
+<mdb-carousel [animation]="'slide'"  [isControls]="true" class="grey lighten-4">
+  <mdb-carousel-item>
+    <blockquote class="blockquote text-center w-100">
+      <p class="mb-0">Anonymisation</p>
+      <footer class="blockquote-footer mb-3">Ajouté le 13/01/2019 par <cite title="Source Title">RamBoF</cite></footer>
+    </blockquote>
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <blockquote class="blockquote text-center w-100">
+      <p class="mb-0">Chiffrement</p>
+      <footer class="blockquote-footer mb-3">Ajouté le 10/01/2019 par <cite title="Source Title">Cmoiquoi</cite></footer>
+    </blockquote>
+  </mdb-carousel-item>
+  <mdb-carousel-item>
+    <blockquote class="blockquote text-center w-100">
+      <p class="mb-0">RGPD</p>
+      <footer class="blockquote-footer mb-3">Ajouté le 09/01/2019 par <cite title="Source Title">Claude</cite></footer>
+    </blockquote>
+  </mdb-carousel-item>
+</mdb-carousel>
+
+
+
+<div class="container">
+
+  <h2 class="px-5 mb-5 mt-4 pb-3   text-center"><i>GlouToN</i> une application dévorante.
+  </h2>
+
+  <form class="md-form mr-auto mb-4 w-100 active-pink-2 d-none">
+    <div class="form-row">
+      <div class="col-lg-10 active-pink-2">
+        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un mot, un thème ..." aria-label="Search">
+      </div>
+      <div class="col-lg-2">
+        <button mdbBtn size="" color="warning" outline="true" rounded="true" class="my-lg-0 waves-light w-100"
+                mdbWavesEffect type="submit">Chercher</button>
+      </div>
+    </div>
+
+    <div class="form-row my-5 d-none">
+      <div class="col-lg-10 active-pink-2">
+        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher un mot, un thème ..." aria-label="Search">
+      </div>
+      <div class="col-lg-2">
+        <button mdbBtn size="" color="warning" outline="true" rounded="true" class="my-lg-0 waves-light w-100 btn-sm"
+                mdbWavesEffect type="submit">Chercher</button>
+      </div>
+    </div>
+
+
+  </form>
+
+
+
+
+  <div class="mt-5 pb-5">
+    <!-- Search form -->
+    <form class="form-inline md-form active-pink-2">
+      <input class="form-control form-control mr-3 w-75 ml-auto" type="search" placeholder="Rechercher un mot, un thème ..." aria-label="Search"
+             mdbInputDirective>
+      <i class="fa fa-search text-warning mr-auto" aria-hidden="true"></i>
+    </form>
+  </div>
+
+</div>

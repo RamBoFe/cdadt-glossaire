@@ -1,0 +1,13 @@
+#wrap {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+//router-outlet +  { flex-grow: 1; }
+//#wrap:nth-child(3) { flex-grow: 1; color: red; }
+router-outlet > * {
+  flex-grow: 1;
+}
+app-header, app-footer, router-outlet  { flex-shrink: 0; }
