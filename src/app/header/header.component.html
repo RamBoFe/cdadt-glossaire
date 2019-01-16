@@ -13,8 +13,7 @@
         </mdb-navbar-brand>
 
         <links [ngClass]="{ 'd-none': longSearch === true  }">
-
-            <div class="mouarf" id="">
+            <div>
                 <ul class="navbar-nav mt-lg-0">
                     <li class="nav-item" routerLinkActive="active">
                         <a class="nav-link" routerLink="/home" >Accueil</a>
@@ -38,7 +37,7 @@
                         <li id="app-nav-search" class="nav-item" [ngClass]="{ 'd-none': longSearch !== true  }">
                             <div class="md-form active-white active-white-2 my-0 ">
                               <!--<a class="my-auto d-none" (click)="cancelSearch()"><i class="fa fa-angle-left fa-lg white-text" aria-hidden="true"></i></a>-->
-                                <input autocomplete="off" class="form-control my-0" type="search" id="app-nav-input-search" aria-label="Search" placeholder="Rechercher un mot, un thème..." mdbInputDirective (keyup)="search()">
+                                <input autocomplete="off" class="form-control my-0" type="search" id="app-nav-input-search" placeholder="Rechercher un mot, un thème..." mdbInputDirective (keyup)="search()">
                             </div>
                         </li>
 
@@ -60,11 +59,11 @@
     </mdb-navbar>
 
 
-    <div id="overlay" [ngClass]="{ 'd-none': longSearch !== true  }"></div>
+    <div id="overlay" [ngClass]="{ 'd-none': longSearch !== true  }" (click)="showLongSearch(false)" ></div>
 
     <div id="app-nav-result-search" class="list-group list-group-flush" [ngClass]="{ 'd-none': (resultSearch.words.length === 0 && resultSearch.themes.length === 0) || longSearch !== true  }">
         <a *ngFor="let theme of resultSearch.themes"
-           class="list-group-item list-group-item-action border-0 waves-light" mdbWavesEffect (click)="hideSearch()"
+           class="list-group-item list-group-item-action border-0 waves-light" mdbWavesEffect (click)="showLongSearch(false)"
            [routerLink]="['themes', theme.id]"
         >
             <mdb-icon class="deep-orange-text" icon="search"></mdb-icon>
@@ -72,7 +71,7 @@
         </a>
 
         <a *ngFor="let word of resultSearch.words"
-           class="list-group-item list-group-item-action border-0 waves-light" mdbWavesEffect (click)="hideSearch()"
+           class="list-group-item list-group-item-action border-0 waves-light" mdbWavesEffect (click)="showLongSearch(false)"
            [routerLink]="['words', word.id]"
         >
             <mdb-icon class="deep-orange-text" icon="search"></mdb-icon>

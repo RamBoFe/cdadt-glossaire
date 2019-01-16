@@ -23,7 +23,7 @@ const routes: Routes = [
     { path: 'words', component: ListWordComponent },
     { path: 'words/:id', component: SingleWordComponent },
     { path: 'auth', component: AuthComponent },
-    { path: '', component: HomeComponent },
+    { path: '**', redirectTo: 'home' },
 ]
 
 @NgModule({

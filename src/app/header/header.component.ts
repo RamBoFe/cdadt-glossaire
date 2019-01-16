@@ -11,7 +11,7 @@ import {ThemeService} from '../services/theme.service';
 })
 export class HeaderComponent implements OnInit {
 
-  private longSearch = false;
+  public longSearch = false;
   private valueSearch: string;
   public resultSearch = {'words': [], 'themes': []};
 
@@ -100,8 +100,10 @@ export class HeaderComponent implements OnInit {
   }
 
 
-  hideSearch() {
-    this.longSearch = false;
-  }
+  // hideSearch() {
+  //   // this.longSearch = false;
+  //   this.showLongSearch(false);
+  // }
+
 
 }

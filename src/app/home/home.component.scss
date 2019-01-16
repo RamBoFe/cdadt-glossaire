@@ -1,24 +1,17 @@
 :host { flex-grow: 1 }
 
-
-.active-white-2 input[type=search]:focus:not([readonly]) {
-  border-bottom: 1px solid ;
-  box-shadow: none;
-  //: orange;
+::ng-deep  .carousel .carousel-indicators {
+  li { background-color: #e0e0e0  !important; }
+  .active { background-color: #bdbdbd !important; }
 }
 
-.active-white input[type=search] {
-  border-bottom: 1px;
-  //box-shadow: none;
-  color: grey;
+
+.active-orange-2 input[type=search]:focus:not([readonly]) {
+  border-bottom: 1px solid #ff5722 ;
+  box-shadow: 0 1px 0 0 #ff5722 ;
 }
 
-.active-pink-2 input[type=search]:focus:not([readonly]) {
-  border-bottom: 1px solid #f48fb1;
-  box-shadow: 0 1px 0 0 orange;
-}
-
-.active-pink input[type=search] {
-  border-bottom: 1px solid #f48fb1;
-  box-shadow: 0 1px 0 0 #f48fb1;
-}
+//.active-pink input[type=search] {
+//  border-bottom: 1px solid #f48fb1;
+//  box-shadow: 0 1px 0 0 #f48fb1;
+//}
