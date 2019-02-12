@@ -1,0 +1,41 @@
+<div class="container">
+  <form class="p-5" [formGroup]="authForm" (ngSubmit)="onSubmitForm()">
+
+    <h2 class="mb-4 text-center">Se connecter</h2>
+
+    <div class="form-row">
+      <div class="col-12">
+        <div class="md-form">
+          <!--<i class="fa fa-envelope text-warning prefix"></i>-->
+          <input mdbInputDirective data-error="E-mail invalide" [mdbValidate]="true" formControlName="email"
+                 data-success="E-mail valide" type="email" id="email" class="form-control">
+          <label for="email">E-mail</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-12">
+        <div class="md-form">
+          <!--<i class="fa fa-lock prefix"></i>-->
+          <input mdbInputDirective data-error="Le mot de passe doit contenir au moins 6 caractères, un chiffre et un caractère spécial." [mdbValidate]="true" formControlName="password"
+                 data-success="Mot de passe valide" type="password" id="password" class="form-control">
+          <label for="password">Mot de passe</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-3">
+      <mdb-checkbox [default]="true">Se souvenir de moi</mdb-checkbox>
+    </div>
+
+    <button mdbBtn color="deep-orange" outline="true" block="true" class="mb-2 mt-5 btn-lg waves-effect" type="submit" [disabled]="authForm.invalid" mdbWavesEffect>
+      Connexion
+    </button>
+
+    <div class="text-right font-small">
+      <a href="">Mot de passe oublié ?</a>
+    </div>
+  </form>
+</div>
+

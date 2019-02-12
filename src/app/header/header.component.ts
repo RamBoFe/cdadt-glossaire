@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
 
     if (yesNo) {
       // Impossible de faire fonctionner le @ViewChild pour accéder aux events de fermeture et d'ouverture de la barre....
-      // On le fait àl'ancienne pour l'instant...
+      // On le fait à l'ancienne pour l'instant...
       this.navbarHeight = elNavDivCollapse.style.height;
       elNavDivCollapse.style.height = '0px';
 
@@ -51,8 +51,11 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  resetInput(id: string) {
-    return (<HTMLInputElement>document.getElementById(id)).value = '';
+  razSearch() {
+    const elNavSearchInput = (<HTMLInputElement>document.getElementById('app-nav-input-search'));
+    elNavSearchInput.value = '';
+    elNavSearchInput.focus();
+    document.getElementById('app-nav-result-search').classList.add('d-none');
   }
 
   search() {
