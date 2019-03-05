@@ -19,11 +19,11 @@ import { AuthComponent } from './auth/auth.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 const routes: Routes = [
-    { path: 'home', component: HomeComponent },
+    { path: '', component: HomeComponent },
     { path: 'words', component: ListWordComponent },
     { path: 'words/:id', component: SingleWordComponent },
     { path: 'auth', component: AuthComponent },
-    { path: '**', redirectTo: 'home' },
+    { path: '**', redirectTo: '' },
 ]
 
 @NgModule({
